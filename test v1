@@ -15,3 +15,9 @@ where employees.salary > 8000
 select abs(a.salary-b.salary) 
 from employees a, employees b
 where a.manager_id = b.employee_id and a.last_name = 'Vargas'
+
+2-04
+Из таблицы JOBS выведите должность (JOB_TITLE) и - второй колонкой - последнее слово в названии этой должности.
+Указание: Использование SUBSTR, INSTR.
+select job_title, SUBSTR(job_title, INSTR(job_title,' ',-1) + 1)
+from jobs
