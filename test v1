@@ -19,5 +19,15 @@ where a.manager_id = b.employee_id and a.last_name = 'Vargas'
 2-04
 Из таблицы JOBS выведите должность (JOB_TITLE) и - второй колонкой - последнее слово в названии этой должности.
 Указание: Использование SUBSTR, INSTR.
+
 select job_title, SUBSTR(job_title, INSTR(job_title,' ',-1) + 1)
 from jobs
+
+4-06
+Выведите фамилии тех сотрудников, которые являются менеджерами для других сотрудников.
+
+select employee_id
+from employees
+where employee_id in (
+select manager_id
+from employees)
